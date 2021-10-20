@@ -27,12 +27,13 @@ func setupParseFlags(w io.Writer, args []string) (projectConfig, error) {
 	fs.StringVar(&conf.localPath, "d", "", "Project location on disk")
 	fs.StringVar(&conf.RepoURL, "r", "", "Project remote repository URL")
 	fs.BoolVar(&conf.StaticAssets, "s", false, "Project will have static assets or not")
+	// args := []{"-n", "myproject", "-d", /my/path -r github.com/amitsaha/test-project -s"}
 	err := fs.Parse(args)
 	if err != nil {
 		return conf, err
 	}
 	if fs.NArg() != 0 {
-		return conf, errors.New("No positional parameters expected")
+		return conf, errors.New("no positional parameters expected")
 	}
 	return conf, err
 }
@@ -41,6 +42,7 @@ func setupParseFlags(w io.Writer, args []string) (projectConfig, error) {
 // as the entrypoint function for creating the scaffold structure in Milestones
 // 3 and 4
 func generateScaffold(w io.Writer, conf projectConfig) {
+	//fmt.Printf()
 	fmt.Fprintf(w, "Generating scaffold for project %s in %s\n", conf.Name, conf.localPath)
 }
 
@@ -70,6 +72,8 @@ func main() {
 			fmt.Println(e)
 		}
 		os.Exit(1)
+		// log.Fatal("exited because of something")
 	}
+
 	generateScaffold(os.Stdout, conf)
 }

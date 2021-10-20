@@ -55,6 +55,7 @@ func TestSetupParseFlags(t *testing.T) {
 		}
 
 		if len(tc.expectedOutputContains) != 0 {
+			// setupParseFlags() -> writes a message -> the byteBuf
 			gotOutput := byteBuf.String()
 			if strings.Index(gotOutput, tc.expectedOutputContains) == -1 {
 				t.Errorf("Expected output: %s, Got: %s", tc.expectedOutputContains, gotOutput)

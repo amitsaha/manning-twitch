@@ -8,6 +8,7 @@ import (
 
 func main() {
 	mux := http.NewServeMux()
+	
 	handlers.SetupHandlers(mux)
 	log.Fatal(http.ListenAndServe(":8080", mux))
 }
