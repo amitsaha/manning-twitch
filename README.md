@@ -1,3 +1,7 @@
 # Demo for Manning Twitch
 
-[Twitch](https://www.twitch.tv/videos/1182246197)
+Ocotber, 2021
+
+- [Demos](./demos)
+- [Twitch stream](https://www.twitch.tv/videos/1182246197)
+- [Go time podcast on embed](https://changelog.com/gotime/171)
